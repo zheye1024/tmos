@@ -12,5 +12,4 @@ public class TmosApplicationTests {
     @Test
     public void contextLoads() {
     }
-
 }

@@ -1,0 +1,9 @@
+package cn.xlbweb.tmos.wechat.controller;
+
+/**
+ * @author: bobi
+ * @date: 2018/7/16 14:47
+ * @description:
+ */
+public class UserController {
+}

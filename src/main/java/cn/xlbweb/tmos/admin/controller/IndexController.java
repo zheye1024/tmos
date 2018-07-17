@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class IndexController {
 
     @GetMapping("admin")
-    public String index() {
+    public String admin() {
         return "admin/index";
     }
 

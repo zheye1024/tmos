@@ -1,6 +1,8 @@
 package cn.xlbweb.tmos.admin.service;
 
-import cn.xlbweb.tmos.common.server.ServerResponse;
+
+import cn.xlbweb.tmos.common.layui.TableResponse;
+import org.springframework.data.domain.Pageable;
 
 /**
  * @author: bobi
@@ -10,10 +12,10 @@ import cn.xlbweb.tmos.common.server.ServerResponse;
 public interface IUserService {
 
     /**
-     * 根据昵称查询个人信息(Test)
+     * layui table查询所有用户信息
      *
-     * @param nickname
+     * @param pageable
      * @return
      */
-    ServerResponse findByNickname(String nickname);
+    TableResponse findAll(Pageable pageable);
 }

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>用户列表</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/admin/lib/layui/css/layui.css">
+    <link rel="stylesheet" href="/admin/css/scroll-bar.css">
+    <link rel="stylesheet" href="/admin/css/sub-page.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_693759_wytlyqhtdtj1nhfr.css">
+</head>
+<body>
+    <div class="ok-body">
+        <!--面包屑导航区域-->
+        <div class="ok-body-breadcrumb">
+            <span class="layui-breadcrumb">
+                <a><cite>首页</cite></a>
+                <a><cite>常用页面</cite></a>
+                <a><cite>用户列表</cite></a>
+            </span>
+            <a class="layui-btn layui-btn-small" href="javascript:location.replace(location.href);" title="刷新">
+                <i class="layui-icon layui-icon-refresh"></i>
+            </a>
+        </div>
+        <!--模糊搜索区域-->
+        <div class="layui-row">
+            <form class="layui-form layui-col-md12 ok-search">
+                <input class="layui-input" placeholder="开始日期" autocomplete="off" id="startTime">
+                <input class="layui-input" placeholder="截止日期" autocomplete="off" id="endTime">
+                <input class="layui-input" placeholder="请输入用户名" autocomplete="off">
+                <button class="layui-btn"  lay-submit="" lay-filter="search">
+                    <i class="layui-icon layui-icon-search"></i>
+                </button>
+            </form>
+        </div>
+        <!--工具栏-->
+        <okToolbar>
+            <button class="layui-btn layui-btn-normal" id="batchEnabled">
+                <i class="iconfont icon-shangsheng"></i>批量启用
+            </button>
+            <button class="layui-btn layui-btn-warm" id="batchDisabled">
+                <i class="iconfont icon-web-icon-"></i>批量停用
+            </button>
+            <button class="layui-btn layui-btn-danger" id="batchDel">
+                <i class="layui-icon layui-icon-delete"></i>批量删除
+            </button>
+            <button class="layui-btn" id="addUser">
+                <i class="layui-icon">&#xe61f;</i>添加用户
+            </button>
+            <span>共有数据：<i id="countNum"></i> 条</span>
+        </okToolbar>
+        <!--数据表格-->
+		<table class="layui-hide" id="tableId" lay-filter="tableFilter"></table>
+    </div>
+    <!--js逻辑-->
+    <script src="/admin/lib/layui/layui.js"></script>
+    <script src="/admin/js/user.js"></script>
+	<!--模板-->
+	<script type="text/html" id="operationTpl">
+		<a href="javascript:;" title="编辑" lay-event="edit"><i class="layui-icon">&#xe642;</i></a>
+        <a href="javascript:;" title="删除" lay-event="del"><i class="layui-icon">&#xe640;</i></a>
+	</script>
+</body>
+</html>

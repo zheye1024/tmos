@@ -11,11 +11,4 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
  */
 public interface UserRepository extends JpaRepository<User, Integer>, JpaSpecificationExecutor<User> {
 
-    /**
-     * 根据昵称查询个人信息(Test)
-     *
-     * @param id
-     * @return
-     */
-    User findByNickname(String id);
 }

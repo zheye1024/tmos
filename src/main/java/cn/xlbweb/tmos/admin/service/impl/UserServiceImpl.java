@@ -2,10 +2,14 @@ package cn.xlbweb.tmos.admin.service.impl;
 
 import cn.xlbweb.tmos.admin.repository.UserRepository;
 import cn.xlbweb.tmos.admin.service.IUserService;
-import cn.xlbweb.tmos.common.server.ServerResponse;
+import cn.xlbweb.tmos.common.layui.TableResponse;
 import cn.xlbweb.tmos.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author: bobi
@@ -18,13 +22,9 @@ public class UserServiceImpl implements IUserService {
     @Autowired
     private UserRepository userRepository;
 
-
     @Override
-    public ServerResponse findByNickname(String nickname) {
-        User user = userRepository.findByNickname(nickname + "");
-        if (user != null) {
-            return ServerResponse.success("查询成功", user);
-        }
-        return ServerResponse.error("无数据");
+    public TableResponse findAll(Pageable pageable) {
+        Page<User> userPage = userRepository.findAll(pageable);
+        return new TableResponse(userPage.getTotalElements(), userPage.getContent());
     }
 }

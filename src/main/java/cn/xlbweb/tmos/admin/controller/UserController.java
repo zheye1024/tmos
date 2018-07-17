@@ -1,12 +1,13 @@
 package cn.xlbweb.tmos.admin.controller;
 
 import cn.xlbweb.tmos.admin.service.IUserService;
-import cn.xlbweb.tmos.common.server.ServerResponse;
+import cn.xlbweb.tmos.common.layui.TableResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author: bobi
@@ -20,9 +21,16 @@ public class UserController {
     @Autowired
     private IUserService iUserService;
 
-    @GetMapping("findByNickname")
+    @GetMapping
+    public String index() {
+        return "admin/user";
+    }
+
+    @PostMapping("list")
     @ResponseBody
-    public ServerResponse findOne(String nickname) {
-        return iUserService.findByNickname(nickname);
+    public TableResponse findAll(@RequestParam(value = "page", defaultValue = "1") Integer page,
+                                 @RequestParam(value = "limit", defaultValue = "10") Integer limit) {
+        Pageable pageable = PageRequest.of(page - 1, limit);
+        return iUserService.findAll(pageable);
     }
 }

@@ -21,11 +21,4 @@ public class UserRepositoryTest {
     @Autowired
     private UserRepository userRepository;
 
-    @Test
-    public void findByNickname() {
-        User user = userRepository.findByNickname("Mr.X");
-        System.out.println("---------");
-        System.out.println(user);
-        System.out.println("---------");
-    }
 }

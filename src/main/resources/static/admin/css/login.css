@@ -18,12 +18,11 @@ body {
 .head {
     width: 100px;
     height: 100px;
-    border-radius: 50%;
     position: absolute;
-    top: -96px;
+    top: -87px;
     left: 50%;
     margin-left: -50px;
-    background: url("../images/ok.png");
+    background: url("../images/tmos.png");
     background-size: cover;
 }
 

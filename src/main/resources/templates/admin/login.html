@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ok-admin | 很赞的后台模版</title>
+    <title>TMOS - 微信公众号物流优化系统</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="keywords" content="ok-admin v1.0,ok-admin网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
     <meta name="description" content="ok-admin v1.0，顾名思义，很赞的后台模版，它是一款基于Layui框架的轻量级扁平化且完全免费开源的网站后台管理系统模板，适合中小型CMS后台系统。">
@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="copyright">
-            © 2018-2019 ok-admin. All rights reserved.
+            © 2018-2019 TMOS. All rights reserved.
         </div>
     </div>
     <!--js逻辑-->
@@ -53,13 +53,23 @@
             });
 
             $(".oauth .icon-WechatIMG").click(function () {
-                // layer.msg('正在打开Gitee登陆页面，请稍后...');
-                window.location = "/auth/giteeLogin";
+                layer.msg('正在通过Gitee登陆...', {
+                    icon: 16,
+                    shade: [0.4, '#393D49'],
+                    end: function () {
+                        window.location = "/auth/giteeLogin";
+                    }
+                });
             });
 
             $(".oauth .icon-github").click(function () {
-                // layer.msg('正在打开Github登陆页面，请稍后...');
-                window.location = "/auth/githubLogin";
+                layer.msg('正在通过Github登陆...', {
+                    icon: 16,
+                    shade: [0.4, '#393D49'],
+                    end: function () {
+                        window.location = "/auth/githubLogin";
+                    }
+                });
             });
 
             $(".oauth .icon-logo-weibo").click(function () {

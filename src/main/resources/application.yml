@@ -12,3 +12,5 @@ spring:
   thymeleaf:
     mode: LEGACYHTML5
     cache: false
+  resources:
+    static-locations: classpath:/static/

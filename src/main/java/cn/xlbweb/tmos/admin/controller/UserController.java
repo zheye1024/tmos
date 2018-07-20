@@ -1,18 +1,13 @@
 package cn.xlbweb.tmos.admin.controller;
 
 import cn.xlbweb.tmos.admin.service.IUserService;
-import cn.xlbweb.tmos.common.WebConst;
 import cn.xlbweb.tmos.common.layui.TableResponse;
-import cn.xlbweb.tmos.common.server.ServerResponse;
-import cn.xlbweb.tmos.common.util.ValidateUtil;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpSession;
 
 /**
  * @author: bobi
@@ -26,6 +21,7 @@ public class UserController {
     @Autowired
     private IUserService iUserService;
 
+    @ApiOperation("用户列表页")
     @GetMapping
     public String index() {
         return "admin/user";

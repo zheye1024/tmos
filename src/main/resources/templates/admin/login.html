@@ -16,7 +16,7 @@
     <div class="login-box animated rotateIn">
         <div class="head"></div>
         <div class="input-box">
-            <form class="layui-form" method="post" id="loginForm">
+            <form class="layui-form" method="post">
                 <input type="text" name="account" required lay-verify="required" placeholder="邮箱/手机号/平台账号" autocomplete="off" class="layui-input">
                 <input type="password" name="password" required lay-verify="required" placeholder="密码" autocomplete="off" class="layui-input">
                 <div class="remember-me">
@@ -50,7 +50,7 @@
                     type: 'post',
                     url: '/admin/user/login',
                     dataType: 'json',
-                    data: $("#loginForm").serialize(),
+                    data: data.field,
                     beforeSend: function () {
                         loadIndex = layer.load(0, {shade: 0.1});
                     },

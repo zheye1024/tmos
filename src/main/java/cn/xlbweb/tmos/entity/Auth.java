@@ -14,8 +14,8 @@ import javax.persistence.Table;
  */
 @Data
 @Entity
-@Table(name = "t_oauth")
-public class OAuth {
+@Table(name = "t_auth")
+public class Auth {
 
     /**
      * id主键

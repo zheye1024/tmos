@@ -16,8 +16,8 @@
     <div class="login-box animated rotateIn">
         <div class="head"></div>
         <div class="input-box">
-            <form class="layui-form" action="">
-                <input type="text" name="username" required lay-verify="required" placeholder="邮箱/手机号/平台账号" autocomplete="off" class="layui-input">
+            <form class="layui-form" method="post" id="loginForm">
+                <input type="text" name="account" required lay-verify="required" placeholder="邮箱/手机号/平台账号" autocomplete="off" class="layui-input">
                 <input type="password" name="password" required lay-verify="required" placeholder="密码" autocomplete="off" class="layui-input">
                 <div class="remember-me">
                     <span>记住我：</span>
@@ -44,10 +44,30 @@
         layui.use(['form', 'jquery'], function () {
             var form = layui.form;
             var $ = layui.jquery;
-
+            var loadIndex;
             form.on('submit(login)', function (data) {
-                layer.msg("登陆中...", {icon: 6, time: 1000, anim: 4}, function () {
-                    parent.layer.close(parent.layer.getFrameIndex(window.name));
+                $.ajax({
+                    type: 'post',
+                    url: '/admin/user/login',
+                    dataType: 'json',
+                    data: $("#loginForm").serialize(),
+                    beforeSend: function () {
+                        loadIndex = layer.load(0, {shade: 0.1});
+                    },
+                    complete: function () {
+                        layer.close(loadIndex);
+                    },
+                    success: function (data) {
+                        if (data.status == 0) {
+                            layer.msg(data.msg, {icon: 6, time: 1000}, function () {
+                                window.location = "/admin";
+                            });
+                        }
+                        else layer.msg(data.msg, {icon: 5, time: 1000});
+                    },
+                    error: function () {
+                        layer.msg('服务器错误', {icon: 5, time: 1000});
+                    }
                 });
                 return false;
             });

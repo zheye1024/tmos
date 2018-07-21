@@ -27,7 +27,7 @@ public class IndexController {
     @Autowired
     private IUserService iUserService;
 
-    @ApiOperation("后台登录首页")
+    @ApiOperation("后台管理首页")
     @GetMapping("admin")
     public String admin() {
         return "admin/index";

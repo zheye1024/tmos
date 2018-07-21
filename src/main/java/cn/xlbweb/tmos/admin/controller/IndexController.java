@@ -28,13 +28,13 @@ public class IndexController {
     private IUserService iUserService;
 
     @ApiOperation("后台管理首页")
-    @GetMapping("admin")
+    @GetMapping({"/admin", "/"})
     public String admin() {
         return "admin/index";
     }
 
     @ApiOperation("欢迎页")
-    @GetMapping("admin/welcome")
+    @GetMapping("/admin/welcome")
     public String welcome() {
         return "admin/welcome";
     }

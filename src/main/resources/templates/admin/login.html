@@ -45,6 +45,11 @@
             var form = layui.form;
             var $ = layui.jquery;
             var loadIndex;
+
+            if (window != top) {
+                top.location.href = location.href;
+            }
+
             form.on('submit(login)', function (data) {
                 $.ajax({
                     type: 'post',

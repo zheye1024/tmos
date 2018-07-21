@@ -1,50 +1,56 @@
 /*
- Navicat MariaDB Data Transfer
+SQLyog v10.2 
+MySQL - 5.5.5-10.3.8-MariaDB : Database - db_tmos
+*********************************************************************
+*/
 
- Source Server         : 本机环境
- Source Server Type    : MariaDB
- Source Server Version : 100308
- Source Host           : localhost:3306
- Source Schema         : db_tmos
+/*!40101 SET NAMES utf8 */;
 
- Target Server Type    : MariaDB
- Target Server Version : 100308
- File Encoding         : 65001
+/*!40101 SET SQL_MODE=''*/;
 
- Date: 16/07/2018 16:09:03
-*/
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_tmos` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_bin */;
 
-SET NAMES utf8mb4;
-SET FOREIGN_KEY_CHECKS = 0;
+USE `db_tmos`;
 
--- ----------------------------
--- Table structure for t_oauth
--- ----------------------------
+/*Table structure for table `t_oauth` */
+
 DROP TABLE IF EXISTS `t_oauth`;
-CREATE TABLE `t_oauth`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NULL DEFAULT NULL,
-  `identity_type` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
-  `identifier` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
-  `credential` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
 
--- ----------------------------
--- Table structure for t_user
--- ----------------------------
+CREATE TABLE `t_oauth` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `identity_type` varchar(20) COLLATE utf8_bin DEFAULT NULL,
+  `identifier` varchar(20) COLLATE utf8_bin DEFAULT NULL,
+  `credential` varchar(200) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=DYNAMIC;
+
+/*Data for the table `t_oauth` */
+
+/*Table structure for table `t_user` */
+
 DROP TABLE IF EXISTS `t_user`;
-CREATE TABLE `t_user`  (
+
+CREATE TABLE `t_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nickname` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
-  `avatar` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
-  `phone` varchar(11) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `username` varchar(20) COLLATE utf8_bin DEFAULT NULL,
+  `phone` varchar(11) COLLATE utf8_bin DEFAULT NULL,
+  `email` varchar(30) COLLATE utf8_bin DEFAULT NULL,
+  `password` varchar(80) COLLATE utf8_bin DEFAULT NULL,
+  `nickname` varchar(20) COLLATE utf8_bin DEFAULT NULL,
+  `avatar` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Records of t_user
--- ----------------------------
-INSERT INTO `t_user` VALUES (1, 'Mr.X', 'http://abc.abc.com/photo/1.png', '13122222222');
+/*Data for the table `t_user` */
 
-SET FOREIGN_KEY_CHECKS = 1;
+insert  into `t_user`(`id`,`username`,`phone`,`email`,`password`,`nickname`,`avatar`) values (1,'admin','13111111111','jxjy.ing@foxmail.com','111111','Mr.X','http://abc.abc.com/photo/1.png'),(2,'test01','13122222222','test01@qq.com','111111','测试账号01','xxx');
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;

@@ -21,12 +21,15 @@ layui.use(['element', 'table', 'form', 'jquery', 'laydate'], function () {
         method: 'post',
         limit: 10,
         page: true,
+        size: 'sm',
         cols: [[
             {type: 'checkbox'},
             {field:'id', title:'ID', width:80, sort: true},
+            {field:'username', title:'用户名', width:100},
+            {field:'phone', title:'手机号码', width:120},
+            {field:'email', title:'邮箱', width:150},
             {field:'nickname', title:'昵称', width:100},
             {field:'avatar', title: '头像', width:100},
-            {field:'phone', title:'手机号码', width:120},
             {title:'操作', width:200, templet: '#operationTpl',  align:'center'}
         ]],
         done: function(res, curr, count){
@@ -64,19 +67,19 @@ layui.use(['element', 'table', 'form', 'jquery', 'laydate'], function () {
     });
 
     $("#batchEnabled").click(function(){
-        layer.confirm("确定要批量启用吗？", {icon: 3, title:'提示', anim: 1}, function () {
+        layer.confirm("确定要批量启用吗？", {skin: 'layui-layer-lan', icon: 3, title:'提示', anim: 1}, function () {
             layer.msg("操作成功！", {icon: 1, time: 1000});
         });
     })
 
     $("#batchDisabled").click(function(){
-        layer.confirm("确定要批量停用吗？", {icon: 3, title:'提示', anim: 2}, function () {
+        layer.confirm("确定要批量停用吗？", {skin: 'layui-layer-lan', icon: 3, title:'提示', anim: 2}, function () {
             layer.msg("操作成功！", {icon: 1, time: 1000});
         });
     })
 
     $("#batchDel").click(function(){
-        layer.confirm("确定要批量删除吗？", {icon: 2, title:'提示', anim: 6}, function () {
+        layer.confirm("确定要批量删除吗？", {skin: 'layui-layer-lan', icon: 2, title:'提示', anim: 6}, function () {
             layer.msg("操作成功！", {icon: 1, time: 1000});
         });
     })

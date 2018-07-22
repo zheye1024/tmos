@@ -14,6 +14,7 @@ public class InterceptorConfigurer implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+        // todo "/druid/**"
         registry.addInterceptor(new AdminLoginInterceptor()).addPathPatterns("/admin/**").excludePathPatterns("/admin/login", "/admin/lib/**", "/admin/css/**", "/admin/images/**");
     }
 }
